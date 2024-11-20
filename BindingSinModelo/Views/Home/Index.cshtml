@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+<h1>Bienvenido, @ViewBag.Nombre!</h1>
+
+<form asp-action="Index" method="post">
+    <label for="nombre">Ingresa tu nombre:</label>
+    <input type="text" id="nombre" name="nombre" />
+    <button type="submit">Enviar</button>
+</form>
