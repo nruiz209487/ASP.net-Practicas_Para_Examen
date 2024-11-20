@@ -105,7 +105,20 @@ namespace Mandalorian.Controllers
         // GET: MisionController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            MisionVM obj = new MisionVM();
+            ClsMision mision = new ClsMision();
+
+            try
+            {
+                mision = obj.ObtenerMision(id);
+
+            }
+            catch (Exception ex)
+            {
+
+                return RedirectToAction("Error", "Mision");
+            }
+            return View(mision);
         }
 
         // POST: MisionController/Delete/5
