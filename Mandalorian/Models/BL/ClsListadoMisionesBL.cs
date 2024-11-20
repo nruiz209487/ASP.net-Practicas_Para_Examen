@@ -21,6 +21,22 @@ namespace Mandalorian.Models.BL
             return resList;
         }
 
+        public static void ElimnarMision(int id)
+        {
+            ClsListadoMisionesDAL.ElimnarMision(id);
+        }
+        public static void AnyadirMision(ClsMision value)
+        {
+            ClsListadoMisionesDAL.AnyadirMision(value);
+        }
+        public static ClsMision ObtenerMision(int id)
+        {
+            ClsMision obj;
+            obj = ClsListadoMisionesDAL.ObtenerMision(id);
+            return obj;
+        }
+
+
         private static bool ComprobarHora()
         {
             //  return DateTime.Now.Hour > 8;

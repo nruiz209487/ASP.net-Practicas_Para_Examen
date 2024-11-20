@@ -16,17 +16,15 @@ namespace Mandalorian.Models.DAL
 
         public static List<ClsMision> GetlistadoDeMisionesDal()
         {
+
             return listadoDeMisionesDal;
         }
+
+   
         public static ClsMision ObtenerMision(int id)
         {
             ClsMision obj;
             obj = listadoDeMisionesDal.FirstOrDefault(m => m.Id == id);
-
-            if (obj == null)
-            {
-                throw new MyExcepcion("Objeto no encontado");
-            }
             return obj;
 
         }
@@ -36,12 +34,12 @@ namespace Mandalorian.Models.DAL
             listadoDeMisionesDal.Add(value);
         }
 
-        public static bool ElimnarMision(int id)
+        public static void ElimnarMision(int id)
         {
+            bool misionEliminada = false;
             ClsMision misionEliminar;
             misionEliminar = ObtenerMision(id);
-
-            return listadoDeMisionesDal.Remove(misionEliminar);
+            misionEliminada = listadoDeMisionesDal.Remove(misionEliminar);
         }
 
     }

@@ -30,13 +30,13 @@ namespace Mandalorian.VM
             obj.Descripcion = descripcion;
             obj.Recompensa = recompensa;
             EliminarMision(id);
-            ClsListadoMisionesDAL.AnyadirMision(obj);
+            ClsListadoMisionesBL.AnyadirMision(obj);
         }
         public ClsMision ObtenerMision(int id)
         {
-    
+
             ClsMision obj;
-            obj = ClsListadoMisionesDAL.ObtenerMision(id);
+            obj = ClsListadoMisionesBL.ObtenerMision(id);
             return obj;
 
         }
@@ -45,14 +45,12 @@ namespace Mandalorian.VM
 
             int idNuevo = listadoVMObj.Count + 1;
             ClsMision obj = new ClsMision(idNuevo, titulo, descripcion, recompensa);
-            ClsListadoMisionesDAL.AnyadirMision(obj);
+            ClsListadoMisionesBL.AnyadirMision(obj);
 
         }
         public void EliminarMision(int id)
         {
-        
-            ClsListadoMisionesDAL.ElimnarMision(id);
-
+            ClsListadoMisionesBL.ElimnarMision(id);
         }
     }
 }

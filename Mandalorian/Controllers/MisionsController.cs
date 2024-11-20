@@ -12,7 +12,7 @@ namespace Mandalorian.Controllers
         public ActionResult MainPage()
         {
             MisionVM obj;
-            List<ClsMision> getListadoVMObj = new List<ClsMision>();
+            List<ClsMision> getListadoVMObj;
             try
             {
                 obj = new MisionVM();
@@ -34,11 +34,12 @@ namespace Mandalorian.Controllers
         // GET: MisionController/Details/5
         public ActionResult Details(int id)
         {
-            MisionVM obj = new MisionVM();
-            ClsMision mision = new ClsMision();
+            MisionVM obj;
+            ClsMision mision;
 
             try
             {
+                obj = new MisionVM();
                 mision = obj.ObtenerMision(id);
 
 
@@ -65,9 +66,10 @@ namespace Mandalorian.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(MisionVM model)
         {
+            MisionVM obj;
             try
             {
-                MisionVM obj = new MisionVM();
+                obj = new MisionVM();
                 obj.NuevaMision(model.Titulo, model.Descripcion, model.Recompensa);
 
                 return RedirectToAction(nameof(MainPage));
@@ -105,20 +107,7 @@ namespace Mandalorian.Controllers
         // GET: MisionController/Delete/5
         public ActionResult Delete(int id)
         {
-            MisionVM obj = new MisionVM();
-            ClsMision mision = new ClsMision();
-
-            try
-            {
-                mision = obj.ObtenerMision(id);
-
-            }
-            catch (Exception ex)
-            {
-
-                return RedirectToAction("Error", "Mision");
-            }
-            return View(mision);
+            return View();
         }
 
         // POST: MisionController/Delete/5
