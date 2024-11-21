@@ -1,0 +1,75 @@
+﻿
+ENT:
+---------------------------------------------------------
+Clase ClsLibro
+
+    int id get,set
+	String Autor get,set
+    int Año get,set
+	String Género get,set
+	String Sinopsis get,set
+
+	+ ClsLibro()
+	+ ClsLibro(constructor con todos los parametros)
+	+ compareTo(IF==obj.ID)
+
+DAL
+---------------------------------------------------------
+Clase ClsBiblioteca
+
+    - static List<ClsLibro> biblioteca
+   
+    + static  List<ClsLibro> obtenerBiblioteca() res = biblioteca
+	+ static  ClsLibro obtenerLibro(int id) res = obj(ClsLibro)
+	+ static  void ElimniarLibro(ClsLibro obj) 
+	+ static  void AyadirLibro(ClsLibro obj) 
+	+ static  void ModificarLibro(ClsLibro obj) 
+
+
+BL
+---------------------------------------------------------
+Clase ClsBibliotecaBL
+
+    - static List<ClsLibro> biblioteca
+	- static bool ComprobarBibliotecaAbierta() res = (false si la hora esta entre las 11 y 6)
+
+    (FUNCIONES QUE SIMPLEMENTE CONECTAN CON LA DAL)
+    + static  List<ClsLibro> obtenerBibliotecaBL() res = biblioteca
+	+ static  ClsLibro obtenerLibroBL(int id) res = obj(ClsLibro)
+	+ static  void ElimniarLibroBL(ClsLibro obj) 
+	+ static  void AyadirLibroBL(ClsLibro obj) 
+	+ static  void ModificarLibroBL(ClsLibro obj) 
+
+VM
+---------------------------------------------------------
+ClsBibliotecaVM
+
+    + static List<ClsLibro> biblioteca =  ClsBibliotecaBL.obtenerBibliotecaBL();
+    ATRIBUTOS DE biblioteca PARA MANEJAR EN LA VISTA Y PARA FACILITAR SU USO
+	String Autor get,set
+    int Año get,set
+	String Género get,set
+	String Sinopsis get,set
+
+	  (FUNCIONES QUE SIMPLEMENTE CONECTAN CON LA BL Y EL Controller 
+	  ME PARECE MEJOR QUE SIMPLEMENTE LLAMAR A LA BL YA QUE EN CASO DE TENER QUE MODIFICAR UN OBJETO ANTES DE ENVIARLO EN LA VISTA SERIA MUCHO CODIGO Y MUY LIOSO)
+    + static  List<ClsLibro> obtenerBibliotecaBL() res = biblioteca
+	+ static  ClsLibro obtenerLibroBL(int id) res = obj(ClsLibro)
+	+ static  void ElimniarLibroBL(ClsLibro obj) 
+	+ static  void AyadirLibroBL(ClsLibro obj) 
+	+ static  void ModificarLibroBL(ClsLibro obj) 
+
+
+UI
+---------------------------------------------------------
+CONTROLLER:
+
+   BibliotecaController.cs
+   Pagina Index()
+   Pagina ActionResult Details(int id)
+   Pagina ActionResult Create() y tambien el Create()  [HttpPost] [ValidateAntiForgeryToken]
+   Pagina ActionResult Edit(int id) y tambien el Edit(int id) [HttpPost] [ValidateAntiForgeryToken]
+   Pagina ActionResult Delete(int id) y tambien el Delete(int id) [HttpPost] [ValidateAntiForgeryToken]
+
+
+    
