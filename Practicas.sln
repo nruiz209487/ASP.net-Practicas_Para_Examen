@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BindingSinModelo", "Binding
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD_Personas", "CRUD_Personas\CRUD_Personas.csproj", "{77EFD774-4189-4429-B84F-18C374635583}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaDigital", "BibliotecaDigital\BibliotecaDigital.csproj", "{CFA534AB-2B77-4B42-B92B-5A5BD74A72A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaDigital", "BibliotecaDigital\BibliotecaDigital.csproj", "{CFA534AB-2B77-4B42-B92B-5A5BD74A72A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

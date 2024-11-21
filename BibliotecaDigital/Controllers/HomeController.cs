@@ -10,7 +10,21 @@ namespace BibliotecaDigital.Controllers
         // GET: HomeController
         public ActionResult Index()
         {
-            return View("Index", ClsBibliotecaVM.obtenerBiblioteca());
+            List<ClsLibro> obj = new List<ClsLibro>();
+            try
+            {
+                obj = ClsBibliotecaVM.obtenerBiblioteca();
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction(nameof(Error));
+            }
+            return View("Index", obj);
+        }
+
+        public ActionResult Error()
+        {
+            return View();
         }
 
         // GET: HomeController/Details/5

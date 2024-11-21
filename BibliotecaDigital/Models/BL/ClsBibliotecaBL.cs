@@ -14,13 +14,10 @@ namespace BibliotecaDigital.Models.BL
         /// <returns>devuelve un booleano con la comprobacion</returns>
         private static bool ComprobarBibliotecaAbierta()
         {
-            return DateTime.Now.Hour <= 11 && DateTime.Now.Hour >= 6;
+            //  return DateTime.Now.Hour <= 11 && DateTime.Now.Hour >= 6;
+            return false;
         }
-        /// <summary>
-        /// Pre condicion horario correcto hace como conexion a la DAL CUMPLIENDO LAS REGLAS DE NEGOCIO
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <exception cref="ClsMyException"></exception>
+         
         public static List<ClsLibro> obtenerBiblioteca()
         {
             if (ComprobarBibliotecaAbierta())
