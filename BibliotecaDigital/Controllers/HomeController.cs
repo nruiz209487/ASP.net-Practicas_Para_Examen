@@ -10,6 +10,7 @@ namespace BibliotecaDigital.Controllers
         // GET: HomeController
         public ActionResult Index()
         {
+
             List<ClsLibro> obj = new List<ClsLibro>();
             try
             {
@@ -50,8 +51,9 @@ namespace BibliotecaDigital.Controllers
             {
                 ClsBibliotecaVM.AyadirLibro(model);
                 return RedirectToAction(nameof(Index));
+
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
@@ -97,7 +99,7 @@ namespace BibliotecaDigital.Controllers
                 ClsBibliotecaVM.ElimniarLibro(model);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
                 return View();
             }
